@@ -3,227 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle-S | PC Reconditionnés & Pièces</title>
+    <title>Contrôle S | Sauvegardons le matériel, formons l'avenir</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Vente de PC reconditionnés, pièces détachées et ateliers de réparation à Toulouse.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open%20Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <input type="radio" id="tab-boutique" name="nav-tab" class="tab-trigger" checked>
-    <input type="radio" id="tab-ateliers" name="nav-tab" class="tab-trigger">
-
-    <header class="app-header">
-        <div class="container header-content">
-            <div class="logo">Controle<span class="accent"> S</span></div>
-            
-            <nav class="main-nav">
-                <label for="tab-boutique" class="nav-item">
-                    <span class="icon">🛍️</span> Boutique
-                </label>
-                <label for="tab-ateliers" class="nav-item">
-                    <span class="icon">🛠️</span> Ateliers
-                </label>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <div class="logo">Contrôle <span>S</span></div>
+            <div class="nav-links">
+                <a href="#mission">Notre Mission</a>
+                <a href="#atelier">L'Atelier</a>
+                <a href="#offres">Offres</a>
+                <a href="#investisseurs" class="btn-invest-nav">Espace Investisseur</a>
+            </div>
+        </nav>
     </header>
 
-    <main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sauvegarder le matériel.<br>Former les talents.</h1>
+            <p>Nous récupérons les flottes informatiques des grandes entreprises toulousaines pour les reconditionner. Moins cher pour l'étudiant, mieux pour la planète.</p>
+            <a href="#investisseurs" class="cta-button">Découvrir le projet</a>
+        </div>
+    </section>
 
-        <section class="view-content" id="view-boutique">
+    <section id="mission">
+        <h2>Le Modèle Circulaire Toulousain</h2>
+        <div class="features">
+            <div class="feature-card">
+                <i class="fa-solid fa-building icon"></i>
+                <h3>Sourcing Local</h3>
+                <p>Partenariats avec les grands groupes (Aéronautique, Tech) pour récupérer des machines performantes.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-recycle icon"></i>
+                <h3>Reconditionnement</h3>
+                <p>Nettoyage complet, effacement sécurisé des données et mise à niveau des composants.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-graduation-cap icon"></i>
+                <h3>Accessibilité</h3>
+                <p>Prix solidaires pour étudiants, start-ups et associations. Lutter contre la fracture numérique.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="atelier" class="workshop">
+        <div class="workshop-content">
+            <div class="workshop-text">
+                <h2>L'Innovation : L'Atelier Participatif</h2>
+                <p>Nous ne vendons pas seulement un produit, nous vendons une compétence. Le client peut payer moins cher s'il met la main à la pâte.</p>
+                <ul>
+                    <li>✅ <strong>Réduction du prix :</strong> -25% si le client assemble/répare lui-même.</li>
+                    <li>✅ <strong>Formation :</strong> Nos techniciens supervisent et apprennent les gestes de base.</li>
+                    <li>✅ <strong>Sensibilisation :</strong> Comprendre sa machine, c'est mieux la préserver.</li>
+                </ul>
+            </div>
+            <div class="workshop-testimonial">
+               <div class="testimonial-box">
+                   <h3>"J'ai réparé mon propre PC !"</h3>
+                   <p><em>— Thomas, Étudiant à Paul Sabatier</em></p>
+               </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="offres">
+        <h2>Choisissez votre formule</h2>
+        <div class="pricing-container">
             
-            <section class="hero-static">
-                <div class="container hero-content">
-                    <h1>L'informatique a deux vies.<br>Choisissez la vôtre.</h1>
-                    <p class="hero-subtitle">
-                        PC reconditionnés par des étudiants ou Ateliers pour réparer vous-même.<br>
-                        Une démarche locale, économique et durable à Toulouse.
-                    </p>
-                    
-                    <div class="hero-actions">
-                        <div class="btn-hero primary" onclick="document.getElementById('catalogue-complet').scrollIntoView({behavior: 'smooth'})">
-                            <span>💻</span> Acheter un PC
-                        </div>
-                        
-                        <label for="tab-ateliers" class="btn-hero secondary">
-                            <span>🔧</span> Réserver un Atelier
-                        </label>
-                    </div>
-                </div>
-            </section>
-
-            <div class="container mt-large" id="catalogue-complet">
+            <div class="price-card">
+                <h3>Offre Sérénité</h3>
+                <p class="sub-text">PC reconditionné clé en main</p>
                 
-                <div class="shop-category">
-                    <h3 class="category-title">💻 PC Portables Reconditionnés</h3>
-                    <p class="category-desc">Flottes d'entreprises locales (Airbus, Pierre Fabre) auditées.</p>
+                <div class="price-row">
+                    <span class="currency">€</span>
+                    <span class="amount">290</span>
+                </div>
+
+                <ul>
+                    <li>✅ PC prêt à l'emploi</li>
+                    <li>✅ Réparé par nos experts</li>
+                    <li>✅ Garantie 1 an</li>
+                </ul>
+                <a href="#" class="btn-card standard-btn">Choisir le confort</a>
+            </div>
+
+            <div class="price-card highlight">
+                <div class="badge">Offre Étudiante</div>
+                <h3>Offre Participative</h3>
+                <p class="sub-text">Atelier "Do It Yourself"</p>
+                
+                <div class="price-row">
+                    <span class="currency">€</span>
+                    <span class="amount">220</span>
+                    <span class="promo">-25%</span>
+                </div>
+
+                <ul>
+                    <li>🛠️ <strong>Vous réparez (2h)</strong></li>
+                    <li>🎓 Formation incluse</li>
+                    <li>✅ Garantie 1 an</li>
+                </ul>
+                <a href="#" class="btn-card highlight-btn">Je relève le défi !</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="impact">
+        <div class="impact-header">
+            <h2>Notre Ambition</h2>
+            <p class="subtitle">Prévisions d'impact pour la première année d'activité.</p>
+        </div>
+
+        <div class="metrics">
+            <div class="metric-item">
+                <span class="tag-goal">Objectif An 1</span>
+                <h3>200+</h3>
+                <p>PC revalorisés</p>
+            </div>
+
+            <div class="metric-item">
+                <span class="tag-goal">Projection</span>
+                <h3>30 t</h3>
+                <p>de CO2 évitées</p>
+                <p class="source-text">*Base ADEME : ~150kg/PC</p>
+            </div>
+
+            <div class="metric-item">
+                <span class="tag-goal">Cible</span>
+                <h3>300</h3>
+                <p>Étudiants formés</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2>L'Équipe Contrôle S</h2>
+        <p class="subtitle">Des étudiants mobilisés pour les étudiants et le climat.</p>
+        
+        <div class="team-grid">
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Titouan&background=2C3E50&color=fff" alt="Titouan" class="avatar">
+                <h3>Titouan</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Mamadou&background=27AE60&color=fff" alt="Mamadou" class="avatar">
+                <h3>Mamadou</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Shakira&background=2C3E50&color=fff" alt="Shakira" class="avatar">
+                <h3>Shakira</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Isaac&background=27AE60&color=fff" alt="Isaac" class="avatar">
+                <h3>Isaac</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Lou&background=2C3E50&color=fff" alt="Lou" class="avatar">
+                <h3>Lou</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+            <div class="member">
+                <img src="https://ui-avatars.com/api/?name=Ruth&background=27AE60&color=fff" alt="Ruth" class="avatar">
+                <h3>Ruth</h3>
+                <span class="role">Co-fondateur</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="investisseurs">
+        <div class="invest-container">
+            <div class="invest-content">
+                <h2>Investissez dans l'Impact Local</h2>
+                <p class="invest-text">
+                    Nous recherchons des partenaires et des financements (Seed) pour ouvrir notre premier atelier physique à Toulouse en <strong>Juin 2026</strong>.
+                </p>
+                
+                <div class="roadmap">
+                    <div class="step">
+                        <span class="date">Janvier 2026</span>
+                        <span class="milestone">Constitution du stock (500 PC)</span>
+                    </div>
+                    <div class="step">
+                        <span class="date">Juin 2026</span>
+                        <span class="milestone">Ouverture Atelier (Toulouse Centre)</span>
+                    </div>
+                    <div class="step">
+                        <span class="date">Juin 2027</span>
+                        <span class="milestone">Breakeven (Rentabilité)</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#" class="btn-pitch"><i class="fa-solid fa-file-pdf"></i> Télécharger le Pitch Deck</a>
+                    <a href="mailto:invest@controle-s.fr" class="btn-contact">Nous contacter</a>
+                </div>
+            </div>
+
+            <div class="trust-badges">
+                <p>Ils croient en nous</p>
+                <div class="logos-grid">
                     
-                    <div class="grid-shop">
-                        <article class="card">
-                            <div class="card-img">💻</div>
-                            <div class="card-content">
-                                <div class="badge-eco">Best-Seller</div>
-                                <h4>Dell Latitude 5490</h4>
-                                <p class="desc">Intel i5 8ème gen • 8Go RAM • SSD 256Go. Idéal étudiant.</p>
-                                <div class="price">249 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <div class="card-img">💻</div>
-                            <div class="card-content">
-                                <h4>Lenovo ThinkPad T480</h4>
-                                <p class="desc">Intel i5 • 16Go RAM • Double Batterie. Robustesse militaire.</p>
-                                <div class="price">290 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <div class="card-img">🚀</div>
-                            <div class="card-content">
-                                <h4>HP EliteBook 840 G5</h4>
-                                <p class="desc">Intel i7 • 16Go RAM • Écran Tactile. Pour le graphisme léger.</p>
-                                <div class="price">350 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <hr class="divider">
-
-                <div class="shop-category">
-                    <h3 class="category-title">🖥️ Tours & Unités Centrales</h3>
-                    <p class="category-desc">Assemblées dans notre atelier toulousain.</p>
-
-                    <div class="grid-shop">
-                        <article class="card">
-                            <div class="card-img">🖥️</div>
-                            <div class="card-content">
-                                <h4>Pack "La Brique"</h4>
-                                <p class="desc">Mini PC Fixe + Écran 22" + Clavier/Souris. Prêt à brancher.</p>
-                                <div class="price">199 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <div class="card-img">⚡</div>
-                            <div class="card-content">
-                                <h4>Tour "Creator"</h4>
-                                <p class="desc">i7 • 32Go RAM • Carte Graphique dédiée. Pour le montage vidéo.</p>
-                                <div class="price">450 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <hr class="divider">
-
-                <div class="shop-category">
-                    <h3 class="category-title">🔧 Pièces & Réparations</h3>
-                    <p class="category-desc">Upgrader au lieu de jeter.</p>
-
-                    <div class="grid-shop">
-                        <article class="card">
-                            <div class="card-img">💾</div>
-                            <div class="card-content">
-                                <h4>SSD Crucial 500Go</h4>
-                                <p class="desc">Boostez la vitesse de démarrage de x10.</p>
-                                <div class="price">45 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <div class="card-img">🔋</div>
-                            <div class="card-content">
-                                <h4>Batterie Universelle</h4>
-                                <p class="desc">Compatible Dell/HP. Redonnez de l'autonomie.</p>
-                                <div class="price">35 €</div>
-                                <button class="btn-add"><span>🛒</span> Ajouter</button>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="view-content" id="view-ateliers">
-            <div class="container">
-                <div class="form-wrapper mt-large">
-                    <div class="form-header">
-                        <h2>Réserver un Établi</h2>
-                        <p>Venez avec votre matériel, on vous apprend à le réparer.</p>
+                    <div class="logo-item">
+                        <i class="fa-solid fa-building-columns logo-icon"></i>
+                        <div class="logo-text">Université<br><span>Toulouse 3</span></div>
                     </div>
 
-                    <form action="#" method="post" class="modern-form">
-                        
-                        <label class="section-label">1. Je veux...</label>
-                        <div class="radio-grid">
-                            <input type="radio" id="type-diag" name="mission" value="diag" checked>
-                            <label for="type-diag" class="radio-card">
-                                <span class="icon">🔍</span>
-                                <div class="radio-info">
-                                    <span class="radio-title">Un Diagnostic</span>
-                                    <span class="radio-desc">Trouver la panne (Gratuit)</span>
-                                </div>
-                            </label>
+                    <div class="logo-item">
+                        <i class="fa-solid fa-network-wired logo-icon"></i>
+                        <div class="logo-text">La Mêlée<br><span>Numérique</span></div>
+                    </div>
 
-                            <input type="radio" id="type-montage" name="mission" value="montage">
-                            <label for="type-montage" class="radio-card">
-                                <span class="icon">🔧</span>
-                                <div class="radio-info">
-                                    <span class="radio-title">Monter une pièce</span>
-                                    <span class="radio-desc">Accompagné (15€)</span>
-                                </div>
-                            </label>
-                        </div>
+                    <div class="logo-item">
+                        <i class="fa-solid fa-rocket logo-icon"></i> <div class="logo-text">French Tech<br><span>Toulouse</span></div>
+                    </div>
 
-                        <div class="input-row mt-medium">
-                            <div class="input-group">
-                                <label class="section-label">Date souhaitée</label>
-                                <input type="date" required>
-                            </div>
-                        </div>
+                    <div class="logo-item">
+                        <i class="fa-solid fa-map logo-icon"></i>
+                        <div class="logo-text">Région<br><span>Occitanie</span></div>
+                    </div>
 
-                        <div class="mt-medium">
-                            <label class="section-label">Créneaux disponibles</label>
-                            <div class="time-chips">
-                                <input type="radio" id="h0900" name="heure" value="09:00" checked>
-                                <label for="h0900" class="chip">09:00</label>
-
-                                <input type="radio" id="h1030" name="heure" value="10:30">
-                                <label for="h1030" class="chip">10:30</label>
-
-                                <input type="radio" id="h1400" name="heure" value="14:00">
-                                <label for="h1400" class="chip">14:00</label>
-
-                                <input type="radio" id="h1600" name="heure" value="16:00">
-                                <label for="h1600" class="chip">16:00</label>
-                            </div>
-                        </div>
-
-                        <label class="section-label mt-medium">Mon Email Étudiant</label>
-                        <input type="email" placeholder="prenom.nom@univ-tlse3.fr" class="full-input" required>
-
-                        <button type="submit" class="btn-primary btn-block">Confirmer ma venue</button>
-                        <p class="form-note">Paiement sur place uniquement.</p>
-                    </form>
                 </div>
-            </div>
-        </section>
-
-    </main>
+</div>
+        </div>
+    </section>
 
     <footer>
-        <div class="container text-center">
-            <p>&copy; 2025 Controle S. Projet Étudiant CEV.</p>
-            <p class="eco-badge">Site Éco-conçu (Note A) | Zéro Cookies</p>
-        </div>
+        <p>© 2024 Contrôle S - Toulouse, Occitanie.</p>
     </footer>
 
 </body>

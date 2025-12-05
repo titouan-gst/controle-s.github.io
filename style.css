@@ -1,404 +1,307 @@
-/* --- 1. VARIABLES (Thème Tech Premium) --- */
-/* --- PALETTE 1 : NATURE (Douce) --- */
-/* --- PALETTE 2 : TECH (Rassurante) --- */
+/* --- 1. RESET & VARIABLES --- */
 :root {
-    --bg-color: #0f172a;       /* Bleu nuit profond */
-    --card-bg: #1e293b;        /* Bleu gris foncé */
-    --text-main: #f8fafc;      /* Blanc froid */
-    --text-muted: #94a3b8;     /* Gris bleuté */
-    --accent: #60a5fa;         /* Bleu ciel mat (pas fluo) */
-    --accent-hover: #93c5fd;   /* Bleu très clair */
-    --border: #334155;
-    --header-height: 70px;
+    --primary: #2C3E50; /* Bleu Nuit */
+    --accent: #27AE60;  /* Vert Écologie */
+    --light: #ECF0F1;
+    --text: #333;
+    --white: #fff;
 }
-/* --- 2. RESET --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    padding-top: var(--header-height); /* Evite que le header cache le contenu */
+    color: var(--text);
+    background-color: #fff;
 }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3, .logo, .date, .price-row {
+    font-family: 'Montserrat', sans-serif;
+}
 
-/* --- 3. HEADER ERGONOMIQUE --- */
-.app-header {
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- 2. NAVIGATION --- */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--header-height);
-    background-color: rgba(15, 23, 42, 0.85); /* Fond semi-transparent */
-    backdrop-filter: blur(10px); /* Effet verre dépoli (moderne) */
-    border-bottom: 1px solid var(--border);
+    width: 100%;
     z-index: 1000;
-    display: flex;
-    align-items: center;
 }
 
-.header-content {
-    width: 100%;
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.5px; }
-.accent { color: var(--accent); }
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+.logo span { color: var(--accent); }
 
-/* Navigation Onglets */
-.main-nav { display: flex; gap: 5px; background-color: rgba(255,255,255,0.05); padding: 4px; border-radius: 50px; }
+.nav-links a { margin-left: 2rem; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--accent); }
 
-.nav-item {
-    padding: 8px 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    transition: all 0.3s ease;
-    display: flex; align-items: center; gap: 8px;
-}
-.nav-item:hover { color: var(--text-main); }
-
-/* --- 4. LOGIQUE D'AFFICHAGE (Le coeur du système) --- */
-.tab-trigger { display: none; } /* Cache les inputs */
-.view-content { display: none; animation: fadeIn 0.4s ease; } /* Cache le contenu */
-
-/* Si Tab 1 coché -> Affiche Vue 1 + Active Bouton 1 */
-#tab-boutique:checked ~ main #view-boutique { display: block; }
-#tab-boutique:checked ~ .app-header label[for="tab-boutique"] {
-    background-color: var(--accent);
-    color: #0f172a;
-    box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+.btn-invest-nav {
+    background: var(--accent);
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-/* Si Tab 2 coché -> Affiche Vue 2 + Active Bouton 2 */
-#tab-ateliers:checked ~ main #view-ateliers { display: block; }
-#tab-ateliers:checked ~ .app-header label[for="tab-ateliers"] {
-    background-color: var(--accent);
-    color: #0f172a;
-    box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
-}
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-/* --- 5. CARROUSEL COMPACT --- */
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 30px;
-}
-.carousel-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-}
-.slide {
-    flex: 0 0 100%;
-    height: 350px; /* Moins haut pour l'ergonomie */
-    scroll-snap-align: start;
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-}
-.slide h2 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
-
-/* --- 6. COMPONENTS (Cards & Forms) --- */
-.mt-large { margin-top: 40px; margin-bottom: 40px; }
-
-.grid-shop { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-/* --- CORRECTION DES CARTES & BOUTONS --- */
-
-/* La Carte : devient une colonne flexible */
-.card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.2s;
-    
-    /* LE FIX D'ALIGNEMENT EST ICI : */
-    display: flex;
-    flex-direction: column; 
-    height: 100%; /* Force la carte à prendre toute la hauteur */
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Ombre plus sympa au survol */
-}
-
-/* L'image */
-.card-img {
-    height: 180px; /* Un peu plus haut pour l'esthétique */
-    background-color: #0f172a;
+/* --- 3. HERO SECTION --- */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1591405351990-4726e331f141?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem; /* Icône plus grosse */
-    border-bottom: 1px solid var(--border);
+    text-align: center;
+    color: var(--white);
+    padding: 0 2rem;
 }
 
-/* Le contenu : force le bouton vers le bas */
-.card-content {
-    padding: 20px;
+.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-inline: auto; }
+
+.cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: transform 0.3s;
+}
+.cta-button:hover { transform: scale(1.05); }
+
+/* --- 4. SECTIONS GÉNÉRALES --- */
+section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+h2 { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem; }
+.subtitle { text-align: center; color: #666; margin-top: -2rem; margin-bottom: 3rem; font-style: italic; }
+
+/* --- 5. MISSION (CARDS) --- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.feature-card {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+.feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent); }
+
+/* --- 6. ATELIER (WORKSHOP) --- */
+.workshop {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7)),
+                url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    border-radius: 20px;
+    margin: 5rem auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.workshop h2 { color: white; }
+.workshop-content { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; }
+.workshop-text { flex: 1; min-width: 300px; padding: 2rem; }
+.workshop-text li { margin-bottom: 1rem; }
+
+.testimonial-box {
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px dashed #fff;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* --- 7. OFFRES (PRICING) --- */
+#offres { background-color: #f9f9f9; width: 100vw; max-width: 100%; margin-left: calc(-50vw + 50%); } /* Full width trick */
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Hauteur égale */
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.price-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 320px;
+    text-align: center;
+    position: relative;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Occupe tout l'espace restant */
+    justify-content: space-between;
 }
 
-.card h4 { font-size: 1.1rem; margin-bottom: 5px; }
-
-.desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 15px;
-    flex-grow: 1; /* C'est ça qui pousse le prix et le bouton vers le bas ! */
-}
-
-.price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-main); /* Prix en blanc pour ressortir */
-    margin-bottom: 15px;
-}
-.price span { font-size: 0.8rem; color: var(--accent); font-weight: normal; }
-
-/* Le Bouton "Ajouter" amélioré */
-.btn-add {
-    width: 100%;
-    padding: 12px;
-    background-color: transparent;
-    border: 2px solid var(--accent); /* Bordure plus épaisse */
-    color: var(--accent);
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Espace entre icône et texte */
-    margin-top: auto; /* SÉCURITÉ : Colle le bouton en bas */
-}
-
-.btn-add:hover {
-    background-color: var(--accent);
-    color: #0f172a; /* Texte noir sur fond cyan */
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); /* Effet néon */
-}
-.card:hover { transform: translateY(-4px); border-color: var(--accent); }
-.card-img { font-size: 3rem; text-align: center; margin-bottom: 15px; }
-.price { font-size: 1.4rem; font-weight: 700; color: var(--accent); margin: 10px 0; }
-
-/* Formulaire */
-.form-wrapper {
-    max-width: 500px; margin: 0 auto;
-    background-color: var(--card-bg); padding: 30px;
-    border-radius: 16px; border: 1px solid var(--border);
-}
-.form-header { text-align: center; margin-bottom: 25px; }
-
-/* Radio Cards (Style Uber/Airbnb) */
-.radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.radio-grid input { display: none; }
-.radio-card {
-    background: var(--bg-color); border: 2px solid var(--border);
-    padding: 15px; border-radius: 8px; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-}
-.radio-grid input:checked + .radio-card {
-    border-color: var(--accent); background-color: rgba(56, 189, 248, 0.1);
-}
-.radio-title { font-weight: bold; margin-top: 5px; }
-.radio-desc { font-size: 0.8rem; color: var(--text-muted); }
-
-/* Inputs */
-.input-row { display: flex; gap: 15px; }
-.input-group { flex: 1; }
-input[type="date"], input[type="email"], select {
-    width: 100%; padding: 12px; background: var(--bg-color);
-    border: 1px solid var(--border); color: var(--text-main); border-radius: 8px;
-}
-input:focus { border-color: var(--accent); outline: none; }
-
-.btn-primary {
-    width: 100%; padding: 12px; margin-top: 20px;
-    background: var(--accent); color: #0f172a; font-weight: bold;
-    border: none; border-radius: 8px; cursor: pointer;
-}
-.btn-secondary {
-    width: 100%; padding: 8px; border: 1px solid var(--accent);
-    color: var(--accent); background: transparent; border-radius: 8px; cursor: pointer;
-}
-.section-label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
-.mt-medium { margin-top: 20px; }
-
-/* Footer */
-footer { padding: 40px; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 50px; border-top: 1px solid var(--border); }
-
-/* --- DESIGN DES PILLULES HORAIRES (Time Chips) --- */
-
-.time-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Espace entre les boutons */
-}
-
-/* On cache les ronds moches des boutons radio */
-.time-chips input[type="radio"] {
-    display: none;
-}
-
-/* Le design du bouton (Pillule) */
-.chip {
-    flex: 1; /* Les boutons prennent toute la largeur dispo */
-    text-align: center;
-    padding: 12px;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--text-muted);
-    transition: all 0.2s ease;
-    min-width: 80px; /* Largeur minimum pour être joli */
-}
-
-/* Au survol de la souris */
-.chip:hover {
-    border-color: var(--text-muted);
-    color: var(--text-main);
-    transform: translateY(-2px);
-}
-
-/* Quand l'heure est SÉLECTIONNÉE */
-.time-chips input[type="radio"]:checked + .chip {
-    background-color: var(--accent); /* Devient bleu cyan */
-    color: #0f172a; /* Texte foncé pour contraste */
-    border-color: var(--accent);
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3); /* Effet lumineux */
-}
-
-/* --- HERO SECTION STATIQUE --- */
-.hero-static {
-    background-color: var(--card-bg); /* Fond uni (très léger) */
-    border-bottom: 1px solid var(--border);
-    padding: 80px 20px; /* De l'espace pour respirer */
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--text-main);
-    font-weight: 800; /* Très gras pour l'impact */
-}
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 40px auto; /* Centré avec marge en bas */
-}
-
-/* Conteneur des boutons */
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Passe à la ligne sur mobile */
-}
-
-/* Gros boutons d'appel à l'action */
-.btn-hero {
-    padding: 15px 30px;
-    border-radius: 50px; /* Boutons très ronds (Pill shape) */
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-hero:hover {
-    transform: translateY(-3px);
-}
-
-/* Style Bouton Principal (Acheter) */
-.btn-hero.primary {
-    background-color: var(--accent);
-    color: var(--bg-color); /* Texte foncé sur fond clair */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Ombre portée */
-}
-
-/* Style Bouton Secondaire (Réparer) */
-.btn-hero.secondary {
-    background-color: transparent;
+.highlight {
     border: 2px solid var(--accent);
-    color: var(--text-main);
-}
-.btn-hero.secondary:hover {
-    background-color: rgba(255,255,255,0.05);
-}
-
-/* Adaptation Mobile */
-@media (max-width: 600px) {
-    .hero-content h1 { font-size: 1.8rem; }
-    .hero-actions { flex-direction: column; }
-    .btn-hero { width: 100%; justify-content: center; }
+    box-shadow: 0 15px 40px rgba(39, 174, 96, 0.15);
+    transform: scale(1.05);
+    z-index: 10;
 }
 
-/* --- STYLE DU CATALOGUE --- */
+.sub-text { color: #777; font-size: 0.9rem; margin-bottom: 1rem; }
 
-.shop-category {
-    margin-bottom: 40px;
+.price-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 1.5rem 0;
 }
 
-.category-title {
-    font-size: 1.8rem;
-    color: var(--text-main);
-    margin-bottom: 5px;
-    border-left: 5px solid var(--accent); /* Petite barre colorée à gauche */
-    padding-left: 15px;
+.amount { font-size: 3rem; font-weight: bold; color: var(--primary); line-height: 1; }
+.currency { font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-top: -10px; }
+.promo {
+    background: #e74c3c; color: white;
+    font-size: 0.8rem; font-weight: bold;
+    padding: 3px 8px; border-radius: 10px;
+    transform: rotate(-10deg); margin-left: 5px;
 }
 
-.category-desc {
-    color: var(--text-muted);
-    margin-bottom: 25px;
-    margin-left: 20px;
+.price-card ul { text-align: left; padding-left: 10px; margin-bottom: 2rem; }
+.price-card li { margin-bottom: 10px; }
+
+.btn-card { display: block; padding: 12px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+.standard-btn { background: #95a5a6; color: white; }
+.highlight-btn { background: var(--accent); color: white; }
+.highlight-btn:hover { background: #219150; }
+
+.badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: white;
+    padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
 }
 
-/* Ligne de séparation discrète */
-.divider {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--border), rgba(0, 0, 0, 0));
-    margin: 60px 0;
+/* --- 8. IMPACT --- */
+.metrics { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; text-align: center; }
+.metric-item h3 { font-size: 3.5rem; color: var(--primary); line-height: 1; margin: 10px 0; }
+.tag-goal {
+    background-color: #e8f6f3; color: var(--accent);
+    font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px; border: 1px solid var(--accent);
+}
+.source-text { font-size: 0.7rem; color: #999; margin-top: 5px; font-style: italic; }
+
+/* --- 9. ÉQUIPE --- */
+.team-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+.member { width: 150px; text-align: center; margin-bottom: 1rem; }
+.avatar {
+    width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--accent); margin-bottom: 10px;
+}
+.member h3 { font-size: 1.1rem; margin-bottom: 2px; color: var(--primary); }
+.role { font-size: 0.85rem; text-transform: uppercase; color: #999; }
+
+/* --- 10. INVESTISSEURS --- */
+#investisseurs { background-color: var(--primary); color: white; width: 100vw; max-width: 100%; margin-left: calc(-50vw + 50%); padding: 4rem 2rem; }
+.invest-container { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; }
+.invest-content { flex: 1; min-width: 300px; }
+.invest-content h2 { color: white; text-align: left; }
+.invest-text { color: #bdc3c7; margin-bottom: 2rem; }
+
+.roadmap { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 2.5rem; }
+.step { margin-bottom: 15px; }
+.date { font-weight: bold; color: var(--accent); margin-right: 10px; }
+
+.cta-group { display: flex; gap: 15px; }
+.btn-pitch { background: var(--accent); color: white; padding: 12px 25px; border-radius: 5px; font-weight: bold; }
+.btn-contact { border: 2px solid white; color: white; padding: 12px 25px; border-radius: 5px; font-weight: bold; }
+
+/* --- CONFIANCE / PARTENAIRES --- */
+.trust-badges {
+    flex: 1;
+    min-width: 300px;
+    /* On enlève le fond gris global pour laisser respirer */
+    padding: 1rem; 
+    text-align: left; /* Alignement à gauche plus pro */
 }
 
-/* Badge "Promo" ou "Best Seller" sur la carte */
-.badge-eco {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--accent);
-    color: #0f172a;
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
+.trust-badges p {
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent); /* Le titre en vert */
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
-/* Petit ajustement pour que les cartes supportent le badge position absolute */
-.card {
-    position: relative; 
+.logos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Toujours 2 colonnes */
+    gap: 20px;
 }
+
+/* LE STYLE GLASSMORPHISM */
+.logo-item {
+    background: rgba(255, 255, 255, 0.05); /* Très transparent */
+    backdrop-filter: blur(5px);            /* Effet de flou derrière */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, background 0.3s;
+    cursor: default;
+}
+
+.logo-item:hover {
+    background: rgba(255, 255, 255, 0.15); /* Plus clair au survol */
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    color: white;
+    margin-right: 15px;
+    opacity: 0.8;
+}
+
+/* Specific color for French Tech rocket just for fun (Optional) */
+.fa-rocket { color: #e74c3c; } 
+
+.logo-text {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.logo-text span {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.logo-box { background: white; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: bold; font-size: 0.8rem; opacity: 0.8; }
+
+/* --- 11. FOOTER --- */
+footer { background: #222; color: #777; text-align: center; padding: 2rem; margin-top: 0; }
