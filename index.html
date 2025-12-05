@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrôle S | Sauvegardons le matériel, formons l'avenir</title>
+    <title>Accueil | Contrôle S</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open%20Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,12 +12,12 @@
 
     <header>
         <nav>
-            <div class="logo">Contrôle <span>S</span></div>
+            <a href="index.html" class="logo">Contrôle <span>S</span></a>
             <div class="nav-links">
-                <a href="#mission">Notre Mission</a>
-                <a href="#atelier">L'Atelier</a>
-                <a href="#offres">Offres</a>
-                <a href="#investisseurs" class="btn-invest-nav">Espace Investisseur</a>
+                <a href="index.html" class="active">Accueil</a>
+                <a href="atelier.html">L'Atelier</a>
+                <a href="offres.html">Offres</a>
+                <a href="investisseurs.html" class="btn-invest-nav">Investisseurs</a>
             </div>
         </nav>
     </header>
@@ -25,220 +25,36 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Sauvegarder le matériel.<br>Former les talents.</h1>
-            <p>Nous récupérons les flottes informatiques des grandes entreprises toulousaines pour les reconditionner. Moins cher pour l'étudiant, mieux pour la planète.</p>
-            <a href="#investisseurs" class="cta-button">Découvrir le projet</a>
+            <p>Nous récupérons les flottes informatiques des grandes entreprises toulousaines pour les reconditionner.</p>
+            <a href="atelier.html" class="cta-button">Découvrir le concept</a>
         </div>
     </section>
 
     <section id="mission">
         <h2>Le Modèle Circulaire Toulousain</h2>
+        
+
         <div class="features">
             <div class="feature-card">
                 <i class="fa-solid fa-building icon"></i>
                 <h3>Sourcing Local</h3>
-                <p>Partenariats avec les grands groupes (Aéronautique, Tech) pour récupérer des machines performantes.</p>
+                <p>Partenariats avec les grands groupes (Aéronautique, Tech).</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-recycle icon"></i>
                 <h3>Reconditionnement</h3>
-                <p>Nettoyage complet, effacement sécurisé des données et mise à niveau des composants.</p>
+                <p>Nettoyage complet, effacement des données et mise à niveau.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-graduation-cap icon"></i>
                 <h3>Accessibilité</h3>
-                <p>Prix solidaires pour étudiants, start-ups et associations. Lutter contre la fracture numérique.</p>
+                <p>Prix solidaires pour étudiants. Lutter contre la fracture numérique.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="atelier" class="workshop">
-        <div class="workshop-content">
-            <div class="workshop-text">
-                <h2>L'Innovation : L'Atelier Participatif</h2>
-                <p>Nous ne vendons pas seulement un produit, nous vendons une compétence. Le client peut payer moins cher s'il met la main à la pâte.</p>
-                <ul>
-                    <li>✅ <strong>Réduction du prix :</strong> -25% si le client assemble/répare lui-même.</li>
-                    <li>✅ <strong>Formation :</strong> Nos techniciens supervisent et apprennent les gestes de base.</li>
-                    <li>✅ <strong>Sensibilisation :</strong> Comprendre sa machine, c'est mieux la préserver.</li>
-                </ul>
-            </div>
-            <div class="workshop-testimonial">
-               <div class="testimonial-box">
-                   <h3>"J'ai réparé mon propre PC !"</h3>
-                   <p><em>— Thomas, Étudiant à Paul Sabatier</em></p>
-               </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="offres">
-        <h2>Choisissez votre formule</h2>
-        <div class="pricing-container">
-            
-            <div class="price-card">
-                <h3>Offre Sérénité</h3>
-                <p class="sub-text">PC reconditionné clé en main</p>
-                
-                <div class="price-row">
-                    <span class="currency">€</span>
-                    <span class="amount">290</span>
-                </div>
-
-                <ul>
-                    <li>✅ PC prêt à l'emploi</li>
-                    <li>✅ Réparé par nos experts</li>
-                    <li>✅ Garantie 1 an</li>
-                </ul>
-                <a href="#" class="btn-card standard-btn">Choisir le confort</a>
-            </div>
-
-            <div class="price-card highlight">
-                <div class="badge">Offre Étudiante</div>
-                <h3>Offre Participative</h3>
-                <p class="sub-text">Atelier "Do It Yourself"</p>
-                
-                <div class="price-row">
-                    <span class="currency">€</span>
-                    <span class="amount">220</span>
-                    <span class="promo">-25%</span>
-                </div>
-
-                <ul>
-                    <li>🛠️ <strong>Vous réparez (2h)</strong></li>
-                    <li>🎓 Formation incluse</li>
-                    <li>✅ Garantie 1 an</li>
-                </ul>
-                <a href="#" class="btn-card highlight-btn">Je relève le défi !</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="impact">
-        <div class="impact-header">
-            <h2>Notre Ambition</h2>
-            <p class="subtitle">Prévisions d'impact pour la première année d'activité.</p>
-        </div>
-
-        <div class="metrics">
-            <div class="metric-item">
-                <span class="tag-goal">Objectif An 1</span>
-                <h3>200+</h3>
-                <p>PC revalorisés</p>
-            </div>
-
-            <div class="metric-item">
-                <span class="tag-goal">Projection</span>
-                <h3>30 t</h3>
-                <p>de CO2 évitées</p>
-                <p class="source-text">*Base ADEME : ~150kg/PC</p>
-            </div>
-
-            <div class="metric-item">
-                <span class="tag-goal">Cible</span>
-                <h3>300</h3>
-                <p>Étudiants formés</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <h2>L'Équipe Contrôle S</h2>
-        <p class="subtitle">Des étudiants mobilisés pour les étudiants et le climat.</p>
-        
-        <div class="team-grid">
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Titouan&background=2C3E50&color=fff" alt="Titouan" class="avatar">
-                <h3>Titouan</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Mamadou&background=27AE60&color=fff" alt="Mamadou" class="avatar">
-                <h3>Mamadou</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Shakira&background=2C3E50&color=fff" alt="Shakira" class="avatar">
-                <h3>Shakira</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Isaac&background=27AE60&color=fff" alt="Isaac" class="avatar">
-                <h3>Isaac</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Lou&background=2C3E50&color=fff" alt="Lou" class="avatar">
-                <h3>Lou</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-            <div class="member">
-                <img src="https://ui-avatars.com/api/?name=Ruth&background=27AE60&color=fff" alt="Ruth" class="avatar">
-                <h3>Ruth</h3>
-                <span class="role">Co-fondateur</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="investisseurs">
-        <div class="invest-container">
-            <div class="invest-content">
-                <h2>Investissez dans l'Impact Local</h2>
-                <p class="invest-text">
-                    Nous recherchons des partenaires et des financements (Seed) pour ouvrir notre premier atelier physique à Toulouse en <strong>Juin 2026</strong>.
-                </p>
-                
-                <div class="roadmap">
-                    <div class="step">
-                        <span class="date">Janvier 2026</span>
-                        <span class="milestone">Constitution du stock (200 PC)</span>
-                    </div>
-                    <div class="step">
-                        <span class="date">Juin 2026</span>
-                        <span class="milestone">Ouverture Atelier (Toulouse Centre)</span>
-                    </div>
-                    <div class="step">
-                        <span class="date">Juin 2027</span>
-                        <span class="milestone">Breakeven (Rentabilité)</span>
-                    </div>
-                </div>
-
-                <div class="cta-group">
-                    <a href="#" class="btn-pitch"><i class="fa-solid fa-file-pdf"></i> Télécharger le Pitch Deck</a>
-                    <a href="mailto:invest@controle-s.fr" class="btn-contact">Nous contacter</a>
-                </div>
-            </div>
-
-            <div class="trust-badges">
-                <p>Ils croient en nous</p>
-                <div class="logos-grid">
-                    
-                    <div class="logo-item">
-                        <i class="fa-solid fa-building-columns logo-icon"></i>
-                        <div class="logo-text">Université<br><span>Toulouse 3</span></div>
-                    </div>
-
-                    <div class="logo-item">
-                        <i class="fa-solid fa-network-wired logo-icon"></i>
-                        <div class="logo-text">La Mêlée<br><span>Numérique</span></div>
-                    </div>
-
-                    <div class="logo-item">
-                        <i class="fa-solid fa-rocket logo-icon"></i> <div class="logo-text">French Tech<br><span>Toulouse</span></div>
-                    </div>
-
-                    <div class="logo-item">
-                        <i class="fa-solid fa-map logo-icon"></i>
-                        <div class="logo-text">Région<br><span>Occitanie</span></div>
-                    </div>
-
-                </div>
-</div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Contrôle S - Toulouse, Occitanie.</p>
+        <p>© 2024 Contrôle S - Toulouse.</p>
     </footer>
 
 </body>
